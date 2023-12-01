@@ -1,7 +1,18 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import com.vaclavbohac.advent2023.day1.Trebuchet
+import com.vaclavbohac.advent2023.puzzle.Puzzle
+import java.io.File
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    val puzzles =
+        listOf(Trebuchet(File("src/main/resources/day-1-input.txt").readLines()).toPuzzle())
+
+    puzzles.forEachIndexed { i, puzzle ->
+        println("Day ${i + 1}. Puzzle: ${puzzle.name}")
+
+        println("1st star solution: ${puzzle.firstStarSolution}")
+        println("2nd star solution: ${puzzle.secondStarSolution}")
+    }
 }
+
+private fun Trebuchet.toPuzzle(): Puzzle =
+    Puzzle("Trebuchet", this.sumCalibratedValues().toString(), this.sumCalibratedValuesAfterInterpolation().toString())
