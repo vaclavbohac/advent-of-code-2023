@@ -1,3 +1,3 @@
 package com.vaclavbohac.advent2023.puzzle
 
-data class Puzzle(val name: String, val firstStarSolution: String, val secondStarSolution: String)
+data class Puzzle(val name: String, val firstStarSolution: Int, val secondStarSolution: Int)
